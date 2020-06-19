@@ -27,12 +27,16 @@ source $HOME/.vim/setting-plugin/leaderf.vim
 source $HOME/.vim/setting-plugin/vim-easymotion.vim
 source $HOME/.vim/setting-plugin/insearch.vim
 source $HOME/.vim/setting-plugin/vim-easy-align.vim
+source $HOME/.vim/setting-plugin/vim-multiple-cursor.vim
 
 " HTML/XML
 source $HOME/.vim/setting-plugin/closetag.vim
 
 " Markdown
 source $HOME/.vim/setting-plugin/markdown.vim
+
+" Tags
+source $HOME/.vim/setting-plugin/vista.vim
 
 " user setting
 if filereadable(expand('~/.vim/user.vim'))

@@ -28,13 +28,14 @@ Plug 'joshdick/onedark.vim'
 Plug 'tomasiser/vim-code-dark'
 Plug 'morhetz/gruvbox'
 Plug 'Rigellute/rigel'
+Plug 'ajmwagar/vim-deus'
 
 " Language Server
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ludovicchabant/vim-gutentags'
 
 " Comment
-Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary' " gcc to toggle comment
 
 " Git
 Plug 'mhinz/vim-signify'
@@ -43,6 +44,8 @@ Plug 'mhinz/vim-signify'
 Plug 'jremmen/vim-ripgrep'
 Plug 'rking/ag.vim'
 Plug 'Yggdroot/LeaderF'
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf'
 
 " Keyboard Operation
 Plug 'tpope/vim-repeat'
@@ -52,6 +55,8 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'tpope/vim-repeat'
 Plug 'junegunn/vim-easy-align'
 Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/vim-peekaboo' " \" / \@ / CTRL-R to see register list
+Plug 'terryma/vim-multiple-cursors'
 
 " HTML, XML tag
 Plug 'andymass/vim-matchup'
@@ -65,5 +70,16 @@ Plug 'justinmk/vim-syntax-extra'
 
 " LLVM
 Plug 'rhysd/vim-llvm'
+
+" Taglist
+Plug 'liuchengxu/vista.vim'
+
+" Formatter
+Plug 'Chiel92/vim-autoformat'
+
+" Other useful utilities
+Plug 'Shougo/neocomplete.vim'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'Shougo/neosnippet.vim'
 
 call plug#end()

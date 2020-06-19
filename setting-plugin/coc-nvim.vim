@@ -1,5 +1,5 @@
 " default extensions
-let g:coc_global_extensions = ['coc-marketplace', 'coc-highlight', 'coc-json', 'coc-python', 'coc-clangd', 'coc-cmake', 'coc-css',  'coc-html', 'coc-tsserver', 'coc-eslint']
+let g:coc_global_extensions = ['coc-marketplace', 'coc-highlight', 'coc-json', 'coc-python', 'coc-clangd', 'coc-cmake', 'coc-css',  'coc-html', 'coc-tsserver', 'coc-eslint', 'coc-vetur', 'coc-gitignore', 'coc-yank', 'coc-lists', 'coc-html', 'coc-emmet', 'coc-vimlsp']
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c

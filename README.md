@@ -112,3 +112,5 @@ Please manually install [Hack Nerd Font Mono](https://github.com/ryanoasis/nerd-
     $ cd %USERPROFILE%\.vim
     $ install.bat
 ```
+
+Manual: https://zhuanlan.zhihu.com/p/145350469

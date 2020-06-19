@@ -168,11 +168,19 @@ def _sshkey(email):
 
 def _mirror_china():
     if util.is_macos():
-        os.system("git -C \"$(brew --repo)\" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git")
-        os.system("git -C \"$(brew --repo homebrew/core)\" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git")
-        os.system("git -C \"$(brew --repo homebrew/cask)\" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask.git")
+        os.system(
+            'git -C "$(brew --repo)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git'
+        )
+        os.system(
+            'git -C "$(brew --repo homebrew/core)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git'
+        )
+        os.system(
+            'git -C "$(brew --repo homebrew/cask)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask.git'
+        )
         print("[vcmd] use tsinghua-mirror for homebrew")
-    os.system("pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple")
+    os.system(
+        "pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple"
+    )
     print("[vcmd] use tsinghua-mirror for pip3")
     os.system("npm config set registry https://registry.npm.taobao.org")
     print("[vcmd] use taobao-mirror for npm")
@@ -181,7 +189,9 @@ def _mirror_china():
 
 if __name__ == "__main__":
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "csm:h", ["clangd", "sshkey", "mirror-china", "help"])
+        opts, args = getopt.getopt(
+            sys.argv[1:], "csm:h", ["clangd", "sshkey", "mirror-china", "help"]
+        )
         for opt in opts:
             if opt[0] in ("-c", "--clangd"):
                 _clangd()
