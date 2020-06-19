@@ -32,3 +32,7 @@ if has('gui_running')
 endif
 
 autocmd FileType c,cpp,h,hpp setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab smarttab
+
+set termguicolors " avoiding background too yellow
+colorscheme gruvbox
+

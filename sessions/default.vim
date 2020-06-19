@@ -2,8 +2,6 @@ let SessionLoad = 1
 if &cp | set nocp | endif
 let s:cpo_save=&cpo
 set cpo&vim
-inoremap <silent> <expr> <Plug>(coc-snippets-expand-jump) coc#_insert_key('request', 'snippets-expand-jump', 1)
-inoremap <silent> <expr> <Plug>(coc-snippets-expand) coc#_insert_key('request', 'snippets-expand', 1)
 inoremap <silent> <expr> <Plug>(neosnippet_start_unite_snippet) unite#sources#neosnippet#start_complete()
 inoremap <silent> <expr> <Plug>(neosnippet_jump) neosnippet#mappings#jump_impl()
 inoremap <silent> <expr> <Plug>(neosnippet_expand) neosnippet#mappings#expand_impl()
@@ -12,7 +10,7 @@ inoremap <silent> <expr> <Plug>(neosnippet_expand_or_jump) neosnippet#mappings#e
 imap <silent> <C-G>% <Plug>(matchup-c_g%)
 inoremap <silent> <Plug>(matchup-c_g%) :call matchup#motion#insert_mode()
 inoremap <silent> <Plug>(peekaboo) :call peekaboo#aboo()
-inoremap <silent> <SNR>84_AutoPairsReturn =AutoPairsReturn()
+inoremap <silent> <SNR>82_AutoPairsReturn =AutoPairsReturn()
 imap <C-G>S <Plug>ISurround
 imap <C-G>s <Plug>Isurround
 inoremap <silent> <Plug>(fzf-maps-i) :call fzf#vim#maps('i', 0)
@@ -50,15 +48,11 @@ inoremap <C-Y> 
 inoremap <C-Z> u
 imap <C-S> :w
 imap <S-Insert> 
-cmap <S-Insert> +
-cmap <C-V> +
 inoremap <C-U> u
-map! <D-v> *
 xnoremap  ggVG
 snoremap  gggHG
 onoremap  gggHG
 nnoremap  <Nop>
-vnoremap  "+y
 map  10h
 map <NL> 10j
 map  10k
@@ -70,14 +64,10 @@ noremap  
 vnoremap  :update
 nnoremap  :update
 onoremap  :update
-map <silent>  :Vista finder
-nmap  "+gP
-omap  "+gP
 nmap ] :vertical resize +3
 nmap [ :vertical resize -3
 nnoremap o :call MaximizeToggle()
 nnoremap  :bd
-vnoremap  "+x
 noremap  
 noremap  u
 nnoremap <silent>  b :LeaderfBuffer
@@ -111,10 +101,9 @@ nnoremap Q <Nop>
 vmap Q gq
 omap Q gq
 xmap S <Plug>VSurround
-map <silent> T :Vista!!
 nnoremap U 
 noremap W 5w
-vnoremap Y :.w !pbcopy 
+vnoremap Y :.w !xclip -i -sel c
 omap <silent> [% <Plug>(matchup-[%)
 xmap <silent> [% <Plug>(matchup-[%)
 nmap <silent> [% <Plug>(matchup-[%)
@@ -140,14 +129,14 @@ nmap gx <Plug>NetrwBrowseX
 omap <silent> g% <Plug>(matchup-g%)
 xmap <silent> g% <Plug>(matchup-g%)
 nmap <silent> g% <Plug>(matchup-g%)
-xnoremap <silent> g<M-k> :call multiple_cursors#select_all("v", 0)
-xnoremap <silent> gë :call multiple_cursors#select_all("v", 0)
-nnoremap <silent> g<M-k> :call multiple_cursors#select_all("n", 0)
-nnoremap <silent> gë :call multiple_cursors#select_all("n", 0)
-xnoremap <silent> g<C-K> :call multiple_cursors#new("v", 0)
-xnoremap <silent> g :call multiple_cursors#new("v", 0)
-nnoremap <silent> g<C-K> :call multiple_cursors#new("n", 0)
-nnoremap <silent> g :call multiple_cursors#new("n", 0)
+xnoremap <silent> g<M-n> :call multiple_cursors#select_all("v", 0)
+xnoremap <silent> gî :call multiple_cursors#select_all("v", 0)
+nnoremap <silent> g<M-n> :call multiple_cursors#select_all("n", 0)
+nnoremap <silent> gî :call multiple_cursors#select_all("n", 0)
+xnoremap <silent> g<C-N> :call multiple_cursors#new("v", 0)
+xnoremap <silent> g :call multiple_cursors#new("v", 0)
+nnoremap <silent> g<C-N> :call multiple_cursors#new("n", 0)
+nnoremap <silent> g :call multiple_cursors#new("n", 0)
 xmap gS <Plug>VgSurround
 nmap gcu <Plug>Commentary<Plug>Commentary
 nmap gcc <Plug>CommentaryLine
@@ -195,22 +184,6 @@ omap <silent> z% <Plug>(matchup-z%)
 xmap <silent> z% <Plug>(matchup-z%)
 nmap <silent> z% <Plug>(matchup-z%)
 nmap z :let @/=expand('<cword>')
-nnoremap <silent> <Plug>(multiple-cursors-new-word) :call multiple_cursors#new('v', 1)
-nnoremap <silent> <Plug>(multiple-cursors-new) :call multiple_cursors#new('v', 0)
-nnoremap <silent> <Plug>(multiple-cursors-skip) :call multiple_cursors#skip()
-nnoremap <silent> <Plug>(multiple-cursors-prev) :call multiple_cursors#prev()
-nnoremap <silent> <Plug>(coc-template) :call coc#rpc#notify('doKeymap', ['template'])
-nnoremap <silent> <Plug>(coc-template-bottom) :call coc#rpc#notify('doKeymap', ['template-bottom'])
-nnoremap <silent> <Plug>(coc-template-top) :call coc#rpc#notify('doKeymap', ['template-top'])
-vnoremap <silent> <Plug>(coc-snippets-select) :call coc#rpc#notify('doKeymap', ['snippets-select'])
-xnoremap <silent> <Plug>(coc-git-chunk-outer) :call coc#rpc#request('doKeymap', ['git-chunk-outer'])
-onoremap <silent> <Plug>(coc-git-chunk-outer) :call coc#rpc#request('doKeymap', ['git-chunk-outer'])
-xnoremap <silent> <Plug>(coc-git-chunk-inner) :call coc#rpc#request('doKeymap', ['git-chunk-inner'])
-onoremap <silent> <Plug>(coc-git-chunk-inner) :call coc#rpc#request('doKeymap', ['git-chunk-inner'])
-nnoremap <silent> <Plug>(coc-git-commit) :call coc#rpc#notify('doKeymap', ['git-commit'])
-nnoremap <silent> <Plug>(coc-git-chunkinfo) :call coc#rpc#notify('doKeymap', ['git-chunkinfo'])
-nnoremap <silent> <Plug>(coc-git-prevchunk) :call coc#rpc#notify('doKeymap', ['git-prevchunk'])
-nnoremap <silent> <Plug>(coc-git-nextchunk) :call coc#rpc#notify('doKeymap', ['git-nextchunk'])
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))
 xnoremap <silent> <Plug>(neosnippet_register_oneshot_snippet) :call neosnippet#mappings#_register_oneshot_snippet()
@@ -236,24 +209,24 @@ onoremap <silent> <Plug>(matchup-i%) :call matchup#text_obj#delimited(1, 0, 'd
 xnoremap <silent> <Plug>(matchup-a%) :call matchup#text_obj#delimited(0, 1, 'delim_all')
 xnoremap <silent> <Plug>(matchup-i%) :call matchup#text_obj#delimited(1, 1, 'delim_all')
 onoremap <silent> <Plug>(matchup-z%) :call matchup#motion#op('z%')
-xnoremap <silent> <SNR>89_(matchup-z%) :call matchup#motion#jump_inside(1)
+xnoremap <silent> <SNR>87_(matchup-z%) :call matchup#motion#jump_inside(1)
 nnoremap <silent> <Plug>(matchup-z%) :call matchup#motion#jump_inside(0)
 onoremap <silent> <Plug>(matchup-[%) :call matchup#motion#op('[%')
 onoremap <silent> <Plug>(matchup-]%) :call matchup#motion#op(']%')
-xnoremap <silent> <SNR>89_(matchup-[%) :call matchup#motion#find_unmatched(1, 0)
-xnoremap <silent> <SNR>89_(matchup-]%) :call matchup#motion#find_unmatched(1, 1)
+xnoremap <silent> <SNR>87_(matchup-[%) :call matchup#motion#find_unmatched(1, 0)
+xnoremap <silent> <SNR>87_(matchup-]%) :call matchup#motion#find_unmatched(1, 1)
 nnoremap <silent> <Plug>(matchup-[%) :call matchup#motion#find_unmatched(0, 0)
 nnoremap <silent> <Plug>(matchup-]%) :call matchup#motion#find_unmatched(0, 1)
 onoremap <silent> <Plug>(matchup-g%) :call matchup#motion#op('g%')
-xnoremap <silent> <SNR>89_(matchup-g%) :call matchup#motion#find_matching_pair(1, 0)
+xnoremap <silent> <SNR>87_(matchup-g%) :call matchup#motion#find_matching_pair(1, 0)
 onoremap <silent> <Plug>(matchup-%) :call matchup#motion#op('%')
-xnoremap <silent> <SNR>89_(matchup-%) :call matchup#motion#find_matching_pair(1, 1)
+xnoremap <silent> <SNR>87_(matchup-%) :call matchup#motion#find_matching_pair(1, 1)
 nnoremap <silent> <Plug>(matchup-g%) :call matchup#motion#find_matching_pair(0, 0)
 nnoremap <silent> <Plug>(matchup-%) :call matchup#motion#find_matching_pair(0, 1)
-nnoremap <silent> <expr> <SNR>89_(wise) empty(g:v_motion_force) ? 'v' : g:v_motion_force
+nnoremap <silent> <expr> <SNR>87_(wise) empty(g:v_motion_force) ? 'v' : g:v_motion_force
 nnoremap <silent> <Plug>(matchup-hi-surround) :call matchup#matchparen#highlight_surrounding()
-xnoremap <silent> <M-k> :call multiple_cursors#select_all("v", 0)
-nnoremap <silent> <M-k> :call multiple_cursors#select_all("n", 1)
+xnoremap <silent> <M-n> :call multiple_cursors#select_all("v", 0)
+nnoremap <silent> <M-n> :call multiple_cursors#select_all("n", 1)
 xnoremap <silent> <C-N> :call multiple_cursors#new("v", 0)
 nnoremap <silent> <C-N> :call multiple_cursors#new("n", 1)
 xnoremap <silent> <Plug>(peekaboo) :call peekaboo#aboo()
@@ -741,7 +714,6 @@ noremap <silent> <Plug>BufTabLine.Go(4) :exe 'b'.get(buftabline#user_buffers()
 noremap <silent> <Plug>BufTabLine.Go(3) :exe 'b'.get(buftabline#user_buffers(),2,'')
 noremap <silent> <Plug>BufTabLine.Go(2) :exe 'b'.get(buftabline#user_buffers(),1,'')
 noremap <silent> <Plug>BufTabLine.Go(1) :exe 'b'.get(buftabline#user_buffers(),0,'')
-map <silent> <C-T> :Vista finder
 map <C-L> 10l
 map <C-H> 10h
 map <C-K> 10k
@@ -771,19 +743,7 @@ nnoremap <C-S> :update
 onoremap <C-S> :update
 noremap <C-Q> 
 vmap <S-Insert> 
-nmap <S-Insert> "+gP
-omap <S-Insert> "+gP
-nmap <C-V> "+gP
-omap <C-V> "+gP
-vnoremap <C-Insert> "+y
-vnoremap <C-C> "+y
-vnoremap <S-Del> "+x
-vnoremap <C-X> "+x
 vnoremap <BS> d
-vmap <D-x> "*d
-vmap <D-c> "*y
-vmap <D-v> "-d"*P
-nmap <D-v> "*P
 cnoremap  <Home>
 inoremap  <Home>
 cnoremap  <Left>
@@ -808,23 +768,11 @@ imap  :wq
 imap  :w
 cnoremap  =expand("%:p:h") . "/" 
 inoremap  u
-cmap  +
 inoremap  diwa
 inoremap  
 inoremap  u
-inoremap <silent> <expr> " coc#_insert_key('request', 'f3726e39-b1f8-11ea-b92f-af10977587bc')
-inoremap <silent> <expr> ' coc#_insert_key('request', 'f3726e38-b1f8-11ea-b92f-af10977587bc')
-inoremap <silent> <expr> ( coc#_insert_key('request', 'f3726e30-b1f8-11ea-b92f-af10977587bc')
-inoremap <silent> <expr> ) coc#_insert_key('request', 'f3726e31-b1f8-11ea-b92f-af10977587bc')
-inoremap <silent> <expr> < coc#_insert_key('request', 'f3726e36-b1f8-11ea-b92f-af10977587bc')
-inoremap <silent> <expr> > coc#_insert_key('request', 'f3726e37-b1f8-11ea-b92f-af10977587bc')
-xnoremap <silent> ë :call multiple_cursors#select_all("v", 0)
-nnoremap <silent> ë :call multiple_cursors#select_all("n", 1)
-inoremap <silent> <expr> [ coc#_insert_key('request', 'f3726e32-b1f8-11ea-b92f-af10977587bc')
-inoremap <silent> <expr> ] coc#_insert_key('request', 'f3726e33-b1f8-11ea-b92f-af10977587bc')
-inoremap <silent> <expr> ` coc#_insert_key('request', 'f3726e3a-b1f8-11ea-b92f-af10977587bc')
-inoremap <silent> <expr> { coc#_insert_key('request', 'f3726e34-b1f8-11ea-b92f-af10977587bc')
-inoremap <silent> <expr> } coc#_insert_key('request', 'f3726e35-b1f8-11ea-b92f-af10977587bc')
+xnoremap <silent> î :call multiple_cursors#select_all("v", 0)
+nnoremap <silent> î :call multiple_cursors#select_all("n", 1)
 let &cpo=s:cpo_save
 unlet s:cpo_save
 set autoindent
@@ -833,7 +781,6 @@ set autowrite
 set background=dark
 set backspace=indent,eol,start
 set cindent
-set clipboard=unnamed
 set cmdheight=2
 set completeopt=menu
 set display=truncate
@@ -855,65 +802,7 @@ set mouse=a
 set mousemodel=popup
 set nrformats=bin,hex
 set ruler
-set runtimepath=
-set runtimepath+=~/.vim
-set runtimepath+=~/.vim/plugged/indentLine
-set runtimepath+=~/.vim/plugged/nerdtree
-set runtimepath+=~/.vim/plugged/vim-devicons
-set runtimepath+=~/.vim/plugged/lightline.vim
-set runtimepath+=~/.vim/plugged/vim-buftabline
-set runtimepath+=~/.vim/plugged/vim-colors-solarized
-set runtimepath+=~/.vim/plugged/molokai
-set runtimepath+=~/.vim/plugged/vim-monokai
-set runtimepath+=~/.vim/plugged/dracula
-set runtimepath+=~/.vim/plugged/neodark.vim
-set runtimepath+=~/.vim/plugged/srcery-vim
-set runtimepath+=~/.vim/plugged/palenight.vim
-set runtimepath+=~/.vim/plugged/vim-one
-set runtimepath+=~/.vim/plugged/onedark.vim
-set runtimepath+=~/.vim/plugged/vim-code-dark
-set runtimepath+=~/.vim/plugged/gruvbox
-set runtimepath+=~/.vim/plugged/rigel
-set runtimepath+=~/.vim/plugged/vim-deus
-set runtimepath+=~/.vim/plugged/coc.nvim
-set runtimepath+=~/.vim/plugged/vim-gutentags
-set runtimepath+=~/.vim/plugged/vim-commentary
-set runtimepath+=~/.vim/plugged/vim-signify
-set runtimepath+=~/.vim/plugged/vim-ripgrep
-set runtimepath+=~/.vim/plugged/ag.vim
-set runtimepath+=~/.vim/plugged/LeaderF
-set runtimepath+=~/.vim/plugged/fzf.vim
-set runtimepath+=~/.vim/plugged/fzf
-set runtimepath+=~/.vim/plugged/vim-repeat
-set runtimepath+=~/.vim/plugged/vim-easymotion
-set runtimepath+=~/.vim/plugged/vim-surround
-set runtimepath+=~/.vim/plugged/incsearch.vim
-set runtimepath+=~/.vim/plugged/vim-easy-align
-set runtimepath+=~/.vim/plugged/auto-pairs
-set runtimepath+=~/.vim/plugged/vim-peekaboo
-set runtimepath+=~/.vim/plugged/vim-multiple-cursors
-set runtimepath+=~/.vim/plugged/vim-matchup
-set runtimepath+=~/.vim/plugged/vim-closetag
-set runtimepath+=~/.vim/plugged/vim-markdown
-set runtimepath+=~/.vim/plugged/vim-syntax-extra
-set runtimepath+=~/.vim/plugged/vim-llvm
-set runtimepath+=~/.vim/plugged/vista.vim
-set runtimepath+=~/.vim/plugged/vim-autoformat
-set runtimepath+=~/.vim/plugged/neocomplete.vim
-set runtimepath+=~/.vim/plugged/neosnippet-snippets
-set runtimepath+=~/.vim/plugged/neosnippet.vim
-set runtimepath+=/usr/local/share/vim/vimfiles
-set runtimepath+=/usr/local/share/vim/vim82
-set runtimepath+=/usr/local/share/vim/vim82/pack/dist/opt/matchit
-set runtimepath+=/usr/local/share/vim/vimfiles/after
-set runtimepath+=~/.vim/plugged/indentLine/after
-set runtimepath+=~/.vim/plugged/dracula/after
-set runtimepath+=~/.vim/plugged/vim-matchup/after
-set runtimepath+=~/.vim/plugged/vim-markdown/after
-set runtimepath+=~/.vim/plugged/vim-syntax-extra/after
-set runtimepath+=~/.vim/plugged/vim-llvm/after
-set runtimepath+=~/.vim/after
-set runtimepath+=~/.config/coc/extensions/node_modules/coc-snippets
+set runtimepath=~/.vim,~/.vim/plugged/indentLine,~/.vim/plugged/nerdtree,~/.vim/plugged/vim-devicons,~/.vim/plugged/lightline.vim,~/.vim/plugged/vim-buftabline,~/.vim/plugged/vim-colors-solarized,~/.vim/plugged/molokai,~/.vim/plugged/vim-monokai,~/.vim/plugged/dracula,~/.vim/plugged/neodark.vim,~/.vim/plugged/srcery-vim,~/.vim/plugged/palenight.vim,~/.vim/plugged/vim-one,~/.vim/plugged/onedark.vim,~/.vim/plugged/vim-code-dark,~/.vim/plugged/gruvbox,~/.vim/plugged/rigel,~/.vim/plugged/vim-deus,~/.vim/plugged/coc.nvim,~/.vim/plugged/vim-gutentags,~/.vim/plugged/vim-commentary,~/.vim/plugged/vim-signify,~/.vim/plugged/vim-ripgrep,~/.vim/plugged/ag.vim,~/.vim/plugged/LeaderF,~/.vim/plugged/fzf.vim,~/.vim/plugged/fzf,~/.vim/plugged/vim-repeat,~/.vim/plugged/vim-easymotion,~/.vim/plugged/vim-surround,~/.vim/plugged/incsearch.vim,~/.vim/plugged/vim-easy-align,~/.vim/plugged/auto-pairs,~/.vim/plugged/vim-peekaboo,~/.vim/plugged/vim-multiple-cursors,~/.vim/plugged/vim-matchup,~/.vim/plugged/vim-closetag,~/.vim/plugged/vim-markdown,~/.vim/plugged/vim-syntax-extra,~/.vim/plugged/vim-llvm,~/.vim/plugged/vista.vim,~/.vim/plugged/vim-autoformat,~/.vim/plugged/neocomplete.vim,~/.vim/plugged/neosnippet-snippets,~/.vim/plugged/neosnippet.vim,/usr/local/share/vim/vimfiles,/usr/local/share/vim/vim82,/usr/local/share/vim/vim82/pack/dist/opt/matchit,/usr/local/share/vim/vimfiles/after,~/.vim/plugged/indentLine/after,~/.vim/plugged/dracula/after,~/.vim/plugged/vim-matchup/after,~/.vim/plugged/vim-markdown/after,~/.vim/plugged/vim-syntax-extra/after,~/.vim/plugged/vim-llvm/after,~/.vim/after
 set scrolloff=7
 set selectmode=mouse,key
 set shiftwidth=4
@@ -928,7 +817,6 @@ set smarttab
 set softtabstop=4
 set splitbelow
 set splitright
-set statusline=%{NearestMethodOrFunction()}
 set noswapfile
 set tabline=%!buftabline#render()
 set tabstop=4
@@ -954,8 +842,8 @@ endif
 set shortmess=aoO
 argglobal
 %argdel
-$argadd user.vim
-edit user.vim
+$argadd .gitignore
+edit .gitignore
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -995,18 +883,6 @@ inoremap <buffer> <silent> ý =AutoPairsMoveCharacter('}')
 inoremap <buffer> <silent> û =AutoPairsMoveCharacter('{')
 inoremap <buffer> <silent> Ý =AutoPairsMoveCharacter(']')
 inoremap <buffer> <silent> Û =AutoPairsMoveCharacter('[')
-vnoremap <buffer> <silent> [" :exe "normal! gv"|call search('\%(^\s*".*\n\)\%(^\s*"\)\@!', "bW")
-nnoremap <buffer> <silent> [" :call search('\%(^\s*".*\n\)\%(^\s*"\)\@!', "bW")
-vnoremap <buffer> <silent> [] m':exe "normal! gv"|call search('^\s*end\(f\%[unction]\|def\)\>', "bW")
-nnoremap <buffer> <silent> [] m':call search('^\s*end\(f\%[unction]\|def\)\>', "bW")
-vnoremap <buffer> <silent> [[ m':exe "normal! gv"|call search('^\s*\(fu\%[nction]\|def\)\>', "bW")
-nnoremap <buffer> <silent> [[ m':call search('^\s*\(fu\%[nction]\|def\)\>', "bW")
-vnoremap <buffer> <silent> ]" :exe "normal! gv"|call search('^\(\s*".*\n\)\@<!\(\s*"\)', "W")
-nnoremap <buffer> <silent> ]" :call search('^\(\s*".*\n\)\@<!\(\s*"\)', "W")
-vnoremap <buffer> <silent> ][ m':exe "normal! gv"|call search('^\s*end\(f\%[unction]\|def\)\>', "W")
-nnoremap <buffer> <silent> ][ m':call search('^\s*end\(f\%[unction]\|def\)\>', "W")
-vnoremap <buffer> <silent> ]] m':exe "normal! gv"|call search('^\s*\(fu\%[nction]\|def\)\>', "W")
-nnoremap <buffer> <silent> ]] m':call search('^\s*\(fu\%[nction]\|def\)\>', "W")
 noremap <buffer> <silent> <M-n> :call AutoPairsJump()
 noremap <buffer> <silent> <M-p> :call AutoPairsToggle()
 inoremap <buffer> <silent>  =AutoPairsDelete()
@@ -1041,8 +917,8 @@ setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
 setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
 setlocal colorcolumn=
-setlocal comments=sO:\"\ -,mO:\"\ \ ,eO:\"\",:\"
-setlocal commentstring=\"%s
+setlocal comments=:#
+setlocal commentstring=#\ %s
 setlocal complete=.,w,b,u,t,i
 setlocal concealcursor=inc
 setlocal conceallevel=2
@@ -1061,8 +937,8 @@ setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
 setlocal expandtab
-if &filetype != 'vim'
-setlocal filetype=vim
+if &filetype != 'conf'
+setlocal filetype=conf
 endif
 setlocal fixendofline
 setlocal foldcolumn=0
@@ -1087,11 +963,11 @@ setlocal iminsert=0
 setlocal imsearch=-1
 setlocal include=
 setlocal includeexpr=
-setlocal indentexpr=GetVimIndent()
-setlocal indentkeys=0{,0},0),0],:,0#,!^F,o,O,e,=end,=},=else,=cat,=fina,=END,0\\,0=\"\\\ 
+setlocal indentexpr=
+setlocal indentkeys=0{,0},0),0],:,0#,!^F,o,O,e
 setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255,#
-setlocal keywordprg=:help
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
 setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
@@ -1129,21 +1005,22 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
+setlocal spelloptions=
 setlocal statusline=%{lightline#link()}%#LightlineLeft_active_0#%(\ %{lightline#mode()}\ %)%{(&paste)?\"|\":\"\"}%(\ %{&paste?\"PASTE\":\"\"}\ %)%#LightlineLeft_active_0_1#%#LightlineLeft_active_1#%(\ %R\ %)%{(&readonly)&&(1||(&modified||!&modifiable))?\"|\":\"\"}%(\ %t\ %)%{(&modified||!&modifiable)?\"|\":\"\"}%(\ %M\ %)%#LightlineLeft_active_1_2#%#LightlineMiddle_active#%=%#LightlineRight_active_2_3#%#LightlineRight_active_2#%(\ %{&ff}\ %)%{1||1||1?\"|\":\"\"}%(\ %{&fenc!=#\"\"?&fenc:&enc}\ %)%{1||1?\"|\":\"\"}%(\ %{&ft!=#\"\"?&ft:\"no\ ft\"}\ %)%{1?\"|\":\"\"}%(\ 0x%B\ %)%#LightlineRight_active_1_2#%#LightlineRight_active_1#%(\ %3p%%\ %)%#LightlineRight_active_0_1#%#LightlineRight_active_0#%(\ %3l:%-2v\ %)
 setlocal suffixesadd=
 setlocal noswapfile
 setlocal synmaxcol=3000
-if &syntax != 'vim'
-setlocal syntax=vim
+if &syntax != 'conf'
+setlocal syntax=conf
 endif
 setlocal tabstop=4
 setlocal tagcase=
 setlocal tagfunc=
-setlocal tags=~/.cache/tags/Users-ybsun-.vim-tags,./tags,tags;
+setlocal tags=~/.cache/tags/home-ybsun-.vim-tags,./tags,tags;
 setlocal termwinkey=
 setlocal termwinscroll=10000
 setlocal termwinsize=
-setlocal textwidth=78
+setlocal textwidth=0
 setlocal thesaurus=
 setlocal noundofile
 setlocal undolevels=-123456
@@ -1154,15 +1031,15 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 13 - ((12 * winheight(0) + 20) / 40)
+let s:l = 22 - ((21 * winheight(0) + 20) / 40)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-13
-normal! 020|
+22
+normal! 0
 lcd ~/.vim
 tabnext 1
-badd +0 ~/.vim/user.vim
+badd +0 ~/.vim/.gitignore
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
