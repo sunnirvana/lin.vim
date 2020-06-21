@@ -19,4 +19,4 @@ command/*.db
 command/*.ignore
 
 # temporary
-sessions
+./sessions

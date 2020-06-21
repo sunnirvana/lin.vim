@@ -43,7 +43,7 @@ Plug 'mhinz/vim-signify'
 " Searching
 Plug 'jremmen/vim-ripgrep'
 Plug 'rking/ag.vim'
-Plug 'Yggdroot/LeaderF'
+" Plug 'Yggdroot/LeaderF'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf'
 
